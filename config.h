@@ -65,9 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ keyboard_indicators, "^b#7f2a2a^%s^d^","c?n?"  },
-	{ hostname, "^b#61a3b1^ %s ^d^",        NULL    },
-	{ run_command, "^b#bf8950^ %s ^d^",  "mpc status"},
-	{ run_command, "^b#61a3b1^ %s ^d^", "pomodoro status"},
-	{ datetime, "^b#bf5993^ %s ^d^",        "%F %T" },
+	{ datetime, "| %s |",        "%F %T" },
+	{ battery_perc, "| %s perc |",    "BAT1" },
+	{ battery_state, "| %s |", "BAT1"}
 };
