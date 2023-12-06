@@ -65,10 +65,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "| %s ",        "%F %T" },
-	{ battery_perc, "| %s%% ",    "BAT1" },
+	{ datetime, "| %s ",  "%d-%m-%Y %H:%M" },
+	{ battery_perc, "| %s%% ", "BAT1" },
 	{ battery_state, "| %s ", "BAT1"},
-	{ battery_remaining, " | %s ", "BAT1"},
-	{ wifi_perc, "| WiFi: %s%% ", "wlo1"},
-	{ run_command, " | %.16s |", "spotify-now -i \"%title (%album) - %artist\"" }
+	{ run_command, "%s", "dnd_slstatus" },
+	{ run_command, " | %.16s |", "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata | sed -n \'/title/{n;p}\' | cut -d \'\"\' -f 2" }
 };
